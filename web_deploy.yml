@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: frontend
+    zone: prod
+  name: frontend
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: frontend
+      zone: prod
+  strategy: 
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: frontend
+        zone: prod
+    spec:
+      volumes:
+        - name: nginx-cm
+          configMap:
+            name: nginx-configmap
+      containers:
+      - image: sithukyaw666/web:test
+        name: web
+        imagePullPolicy: Always
+        volumeMounts:
+          - name: nginx-cm
+            mountPath: /etc/nginx/conf.d/
+        resources: {}
+status: {}

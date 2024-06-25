@@ -1,0 +1,10 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  creationTimestamp: "2024-06-25T08:53:38Z"
+  name: mongo-hostpath
+  resourceVersion: "17129"
+  uid: 52cbbaea-b8eb-45b7-a055-f45f5fbfc66e
+provisioner: kubernetes.io/no-provisioner
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
