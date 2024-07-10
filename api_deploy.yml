@@ -7,7 +7,11 @@ metadata:
     zone: prod
   name: api
 spec:
+<<<<<<< HEAD
         replicas: 1
+=======
+  replicas: 5
+>>>>>>> 95a9ced8af790a9066c7ecb9a82a91caad4ede4f
   selector:
     matchLabels:
       app: api
