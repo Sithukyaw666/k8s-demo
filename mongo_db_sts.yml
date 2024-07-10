@@ -6,11 +6,21 @@ metadata:
     app: mongo-sts
     zone: prod
 spec: 
-  replicas: 1
+  replicas: 5
   selector: 
     matchLabels:
       app: mongo-sts
       zone: prod
+  volumeClaimTemplates:
+    - metadata:
+        name: mongo-pvc
+      spec: 
+        accessModes: 
+          - ReadWriteOnce
+        storageClassName: local-path
+        resources:
+          requests:
+            storage: 500Mi
   template:
     metadata:
       labels: 
@@ -19,6 +29,9 @@ spec:
     spec: 
       containers:
         - name: mongo-container
-          image: mongo:latest
+          image: mongo:4.4.18
+          volumeMounts:
+            - name: mongo-pvc
+              mountPath: /data/db
           ports: 
             - containerPort: 27017

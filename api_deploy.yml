@@ -25,7 +25,7 @@ spec:
         zone: prod
     spec:
       containers:
-      - image: sithukyaw666/api:beta
+      - image: sithukyaw666/api:zeta
         name: api
         resources: {}
 status: {}

@@ -5,6 +5,6 @@ metadata:
   name: mongo-hostpath
   resourceVersion: "17129"
   uid: 52cbbaea-b8eb-45b7-a055-f45f5fbfc66e
-provisioner: kubernetes.io/no-provisioner
+provisioner: local-path
 reclaimPolicy: Delete
 volumeBindingMode: WaitForFirstConsumer

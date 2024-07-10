@@ -11,6 +11,7 @@ spec:
     protocol: TCP
     targetPort: 27017
   selector:
-    app: mongo-db
+    app: mongo-sts
+  type: LoadBalancer
 status:
   loadBalancer: {}
